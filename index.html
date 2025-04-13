@@ -9,21 +9,34 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(120deg, #1f1c2c, #928dab);
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       scroll-behavior: smooth;
     }
 
     .glass {
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .animated-gradient {
+      background: linear-gradient(270deg, #7F5AF0, #2CB67D, #00f2fe);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientAnim 8s ease infinite;
+    }
+
+    @keyframes gradientAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     #tsparticles {
@@ -33,46 +46,20 @@
       height: 100%;
     }
 
-    .animated-gradient {
-      background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #00f2fe);
-      background-size: 800% 800%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientAnim 10s ease infinite;
-    }
-
-    @keyframes gradientAnim {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .typewriter-text::after {
-      content: '|';
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
     .scroll-top-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 50;
-      background-color: #9333ea;
+      background-color: #7F5AF0;
       color: white;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.75rem 1rem;
-      cursor: pointer;
-      display: none;
+      padding: 12px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
     }
 
-    .scroll-top-btn.show {
-      display: block;
+    .scroll-top-btn:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -83,92 +70,69 @@
   <section class="min-h-screen flex items-center justify-center px-6 text-center">
     <div class="glass p-10 max-w-3xl w-full" data-aos="zoom-in">
       <h1 class="text-5xl font-extrabold mb-4 animated-gradient">ALP Hackathon</h1>
-      <p class="text-lg mb-6 opacity-90 typewriter-text" id="typewriter-text">Join us to build the future — live, fast, and creative</p>
-      <a href="#features" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full font-semibold transition-all">Explore Features</a>
+      <p class="text-lg mb-6 text-white/80">
+        A stunning animated landing page with scroll effects and interactive visuals.
+      </p>
+      <button onclick="alert('Demo clicked!')" class="bg-[#7F5AF0] hover:bg-[#6a45e5] px-6 py-3 rounded-full font-semibold transition-all shadow-lg">
+        Try Demo
+      </button>
     </div>
   </section>
 
   <!-- FEATURES SECTION -->
-  <section id="features" class="min-h-screen flex items-center justify-center px-6 bg-black/30" data-aos="fade-up">
+  <section class="min-h-screen flex items-center justify-center px-6" data-aos="fade-up">
     <div class="max-w-5xl text-center">
       <h2 class="text-4xl font-bold mb-6">Why ALP Stands Out?</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="glass p-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-xl font-semibold mb-2">Creative Transitions</h3>
-          <p>Smooth, eye-catching effects throughout the page.</p>
+          <h3 class="text-xl font-semibold mb-2 text-[#2CB67D]">Creative Transitions</h3>
+          <p class="text-white/80">Smooth, eye-catching effects throughout the page.</p>
         </div>
         <div class="glass p-6" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-semibold mb-2">Fully Responsive</h3>
-          <p>Looks amazing on mobile, tablet, and desktop.</p>
+          <h3 class="text-xl font-semibold mb-2 text-[#2CB67D]">Fully Responsive</h3>
+          <p class="text-white/80">Looks amazing on mobile, tablet, and desktop.</p>
         </div>
         <div class="glass p-6" data-aos="fade-up" data-aos-delay="300">
-          <h3 class="text-xl font-semibold mb-2">Hackathon Ready</h3>
-          <p>Simple, stunning, and deployable in minutes.</p>
+          <h3 class="text-xl font-semibold mb-2 text-[#2CB67D]">Hackathon Ready</h3>
+          <p class="text-white/80">Simple, stunning, and deployable in minutes.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA SECTION -->
-  <section class="min-h-[40vh] flex items-center justify-center px-6 bg-gradient-to-r from-purple-700 via-pink-600 to-red-500" data-aos="fade-up">
-    <div class="text-center max-w-2xl">
-      <h2 class="text-3xl font-bold mb-4">Ready to make something amazing?</h2>
-      <p class="mb-6">Kickstart your hackathon journey today. ALP is your canvas.</p>
-      <a href="#!" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition">Try Demo</a>
-    </div>
-  </section>
-
   <!-- FOOTER -->
-  <footer class="py-6 text-center bg-black/40">
-    <p class="mb-2">Built with love for hackers and dreamers.</p>
-    <div class="flex justify-center gap-4 text-xl">
-      <a href="https://twitter.com" target="_blank" class="hover:text-purple-400">Twitter</a>
-      <a href="https://github.com" target="_blank" class="hover:text-purple-400">GitHub</a>
-      <a href="mailto:alp@example.com" class="hover:text-purple-400">Email</a>
-    </div>
-    <p class="mt-4 text-sm opacity-70">© 2025 ALP. All rights reserved.</p>
+  <footer class="py-6 text-center text-white/60">
+    Made with passion for <span class="text-[#7F5AF0] font-semibold">Hackathons</span> by Team ALP.
   </footer>
 
-  <button class="scroll-top-btn" onclick="scrollToTop()">↑ Top</button>
+  <!-- Scroll to Top Button -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-top-btn">
+    ↑
+  </button>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   <script>
     AOS.init();
-
     tsParticles.load("tsparticles", {
       particles: {
-        number: { value: 80 },
+        number: { value: 60 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.1 },
         size: { value: 3 },
-        move: { enable: true, speed: 1 },
-        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-        color: { value: "#ffffff" }
+        move: {
+          enable: true,
+          speed: 0.6,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: "out"
+        }
       },
-      interactivity: {
-        events: { onhover: { enable: true, mode: "repulse" } }
+      background: {
+        color: "transparent"
       }
     });
-
-    // Typewriter effect
-    const text = "Join us to build the future — live, fast, and creative";
-    let i = 0;
-    const speed = 80;
-    function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("typewriter-text").textContent = text.slice(0, i + 1);
-        i++;
-        setTimeout(typeWriter, speed);
-      }
-    }
-    window.onload = typeWriter;
-
-    // Scroll to top button logic
-    const scrollBtn = document.querySelector(".scroll-top-btn");
-    window.addEventListener("scroll", () => {
-      scrollBtn.classList.toggle("show", window.scrollY > 300);
-    });
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   </script>
 </body>
 </html>
