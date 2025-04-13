@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ALP — Hackathon Landing Page</title>
+  <title>ALP Hackathon</title>
   <link rel="icon" href="favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -13,27 +13,27 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       scroll-behavior: smooth;
     }
 
     .glass {
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 12px;
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
     }
 
     .animated-gradient {
-      background: linear-gradient(270deg, #7F5AF0, #2CB67D, #00f2fe);
+      background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ADEDE, #ffb347);
       background-size: 800% 800%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientAnim 8s ease infinite;
+      animation: gradientFlow 7s ease infinite;
     }
 
-    @keyframes gradientAnim {
+    @keyframes gradientFlow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -46,20 +46,19 @@
       height: 100%;
     }
 
-    .scroll-top-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #7F5AF0;
+    .btn-glow {
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      box-shadow: 0 0 20px #ff6ec4aa, 0 0 30px #7873f5aa;
       color: white;
-      padding: 12px;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
     }
 
-    .scroll-top-btn:hover {
-      transform: scale(1.1);
+    .btn-glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff6ec4dd, 0 0 35px #7873f5dd;
     }
   </style>
 </head>
@@ -70,67 +69,28 @@
   <section class="min-h-screen flex items-center justify-center px-6 text-center">
     <div class="glass p-10 max-w-3xl w-full" data-aos="zoom-in">
       <h1 class="text-5xl font-extrabold mb-4 animated-gradient">ALP Hackathon</h1>
-      <p class="text-lg mb-6 text-white/80">
-        A stunning animated landing page with scroll effects and interactive visuals.
+      <p class="text-lg mb-6 text-white/90">
+        Build. Innovate. Dominate. Impress the judges with a fire landing page that screams creativity.
       </p>
-      <button onclick="alert('Demo clicked!')" class="bg-[#7F5AF0] hover:bg-[#6a45e5] px-6 py-3 rounded-full font-semibold transition-all shadow-lg">
-        Try Demo
+      <button onclick="alert('Demo clicked!')" class="btn-glow">
+        Launch Demo
       </button>
     </div>
   </section>
 
-  <!-- FEATURES SECTION -->
-  <section class="min-h-screen flex items-center justify-center px-6" data-aos="fade-up">
-    <div class="max-w-5xl text-center">
-      <h2 class="text-4xl font-bold mb-6">Why ALP Stands Out?</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="glass p-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-xl font-semibold mb-2 text-[#2CB67D]">Creative Transitions</h3>
-          <p class="text-white/80">Smooth, eye-catching effects throughout the page.</p>
-        </div>
-        <div class="glass p-6" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-semibold mb-2 text-[#2CB67D]">Fully Responsive</h3>
-          <p class="text-white/80">Looks amazing on mobile, tablet, and desktop.</p>
-        </div>
-        <div class="glass p-6" data-aos="fade-up" data-aos-delay="300">
-          <h3 class="text-xl font-semibold mb-2 text-[#2CB67D]">Hackathon Ready</h3>
-          <p class="text-white/80">Simple, stunning, and deployable in minutes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-6 text-center text-white/60">
-    Made with passion for <span class="text-[#7F5AF0] font-semibold">Hackathons</span> by Team ALP.
-  </footer>
-
-  <!-- Scroll to Top Button -->
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-top-btn">
-    ↑
-  </button>
-
-  <!-- Scripts -->
   <script>
     AOS.init();
     tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "transparent" },
       particles: {
-        number: { value: 60 },
-        color: { value: "#ffffff" },
+        number: { value: 80 },
+        color: { value: ["#ff6ec4", "#4ADEDE", "#7873f5"] },
         shape: { type: "circle" },
-        opacity: { value: 0.1 },
+        opacity: { value: 0.5 },
         size: { value: 3 },
-        move: {
-          enable: true,
-          speed: 0.6,
-          direction: "none",
-          random: true,
-          straight: false,
-          outModes: "out"
-        }
-      },
-      background: {
-        color: "transparent"
+        move: { enable: true, speed: 1 },
+        links: { enable: true, distance: 120, color: "#ffffff", opacity: 0.2 }
       }
     });
   </script>
