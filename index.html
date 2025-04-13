@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,84 +14,89 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       scroll-behavior: smooth;
-    }
+    }.glass {
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+}
 
-    .glass {
-      backdrop-filter: blur(18px) saturate(160%);
-      -webkit-backdrop-filter: blur(18px) saturate(160%);
-      background-color: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 16px;
-    }
+.animated-gradient {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ADEDE, #ffb347);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 7s ease infinite;
+}
 
-    .animated-gradient {
-      background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ADEDE, #ffb347);
-      background-size: 800% 800%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientFlow 7s ease infinite;
-    }
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+#tsparticles {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
 
-    #tsparticles {
-      position: fixed;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-    }
+.btn-glow {
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  box-shadow: 0 0 20px #ff6ec4aa, 0 0 30px #7873f5aa;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
 
-    .btn-glow {
-      background: linear-gradient(to right, #ff6ec4, #7873f5);
-      box-shadow: 0 0 20px #ff6ec4aa, 0 0 30px #7873f5aa;
-      color: white;
-      font-weight: bold;
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
-      transition: all 0.3s ease;
-    }
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff6ec4dd, 0 0 35px #7873f5dd;
+}
 
-    .btn-glow:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #ff6ec4dd, 0 0 35px #7873f5dd;
-    }
   </style>
 </head>
 <body class="text-white overflow-x-hidden">
-  <div id="tsparticles"></div>
-
-  <!-- HERO SECTION -->
-  <section class="min-h-screen flex items-center justify-center px-6 text-center">
+  <div id="tsparticles"></div>  <!-- HERO SECTION -->  <section class="min-h-screen flex items-center justify-center px-6 text-center">
     <div class="glass p-10 max-w-3xl w-full" data-aos="zoom-in">
       <h1 class="text-5xl font-extrabold mb-4 animated-gradient">ALP Hackathon</h1>
-      <p class="text-lg mb-6 text-white/90">
-        Build. Innovate. Dominate. Impress the judges with a fire landing page that screams creativity.
-      </p>
-      <button onclick="alert('Demo clicked!')" class="btn-glow">
-        Launch Demo
-      </button>
+      <p class="text-lg mb-6">Join the ultimate coding showdown and showcase your skills!</p>
+      <a href="https://t.me/Prompt2picbot" target="_blank" class="btn-glow">Try Prompt2Pic Now</a>
     </div>
-  </section>
-
-  <script>
+  </section>  <!-- ABOUT SECTION -->  <section class="py-20 px-6 bg-[#1b1b2f] text-center" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6 animated-gradient">Why Prompt2Pic?</h2>
+    <p class="max-w-2xl mx-auto text-lg text-gray-300">Our Telegram bot lets you generate stunning AI images instantly with multiple models. Get jokes, fun facts, and a free creative experience!</p>
+  </section>  <!-- FOOTER -->  <footer class="py-6 text-center text-gray-400 text-sm bg-black">
+    Made with passion for ALP Hackathon | Built by Team Prompt2Pic
+  </footer>  <script>
     AOS.init();
+
     tsParticles.load("tsparticles", {
       fullScreen: { enable: false },
-      background: { color: "transparent" },
+      background: {
+        color: "transparent"
+      },
       particles: {
-        number: { value: 80 },
-        color: { value: ["#ff6ec4", "#4ADEDE", "#7873f5"] },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        move: { enable: true, speed: 1 },
-        links: { enable: true, distance: 120, color: "#ffffff", opacity: 0.2 }
+        number: {
+          value: 50
+        },
+        size: {
+          value: 3
+        },
+        move: {
+          enable: true,
+          speed: 1
+        },
+        links: {
+          enable: true,
+          color: "#ffffff",
+          distance: 120
+        }
       }
     });
-  </script>
-</body>
+  </script></body>
 </html>
