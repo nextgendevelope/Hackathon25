@@ -11,80 +11,86 @@
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(120deg,  #7F00FF, #928dab);
-      scroll-behavior: smooth;
-    }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+    scroll-behavior: smooth;
+    color: white;
+  }
 
-    .glass {
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
-    #tsparticles {
-      position: fixed;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-    }
+  #tsparticles {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
 
-    .animated-gradient {
-      background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #00f2fe);
-      background-size: 800% 800%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientAnim 10s ease infinite;
-    }
+  .animated-gradient {
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #22d3ee);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnim 10s ease infinite;
+  }
 
-    @keyframes gradientAnim {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+  @keyframes gradientAnim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
-    .typewriter-text::after {
-      content: '|';
-      animation: blink 1s infinite;
-    }
+  .typewriter-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+  }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
 
-    .scroll-top-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 50;
-      background-color: #9333ea;
-      color: white;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.75rem 1rem;
-      cursor: pointer;
-      display: none;
-    }
+  .scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease;
+  }
 
-    .scroll-top-btn.show {
-      display: block;
-    }
-  </style>
+  .scroll-top-btn:hover {
+    background-color: #059669;
+  }
+
+  .scroll-top-btn.show {
+    display: block;
+  }
+</style>
 </head>
 <body class="text-white overflow-x-hidden">
   <div id="tsparticles"></div>
 
   <!-- HERO SECTION -->
-  <section class="min-h-screen flex items-center justify-center px-6 text-center">
+  <section class="min-h-[40vh] flex items-center justify-center px-6 bg-gradient-to-r from-[#ff512f] via-[#dd2476] to-[#ff512f]" data-aos="fade-up">
     <div class="glass p-10 max-w-3xl w-full" data-aos="zoom-in">
       <h1 class="text-5xl font-extrabold mb-4 animated-gradient">ALP Hackathon</h1>
       <p class="text-lg mb-6 opacity-90 typewriter-text" id="typewriter-text">Join us to build the future — live, fast, and creative</p>
-      <a href="#features" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full font-semibold transition-all">Explore Features</a>
+      <a href="#features" class="bg-emerald-500 hover:bg-emerald-600 px-6 py-3 rounded-full font-semibold transition-all">Explore Features</a>
     </div>
   </section>
 
