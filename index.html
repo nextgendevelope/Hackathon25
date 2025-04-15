@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prompt2Pic — Hackathon Landing Page</title>
+  <title>Prompt2Pic — AI Art Generator</title>
   <link rel="icon" href="favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -12,51 +12,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(120deg, #1f1c2c, #928dab);
+      background: linear-gradient(to right, #1f1c2c, #928dab);
       scroll-behavior: smooth;
     }
-
     .glass {
       backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
       background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-
+    .animated-gradient {
+      background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientAnim 8s ease infinite;
+    }
+    @keyframes gradientAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     #tsparticles {
       position: fixed;
       z-index: -1;
       width: 100%;
       height: 100%;
     }
-
-    .animated-gradient {
-      background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #00f2fe);
-      background-size: 800% 800%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientAnim 10s ease infinite;
-    }
-
-    @keyframes gradientAnim {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .typewriter-text::after {
-      content: '|';
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
     .scroll-top-btn {
       position: fixed;
       bottom: 20px;
@@ -70,7 +53,6 @@
       cursor: pointer;
       display: none;
     }
-
     .scroll-top-btn.show {
       display: block;
     }
@@ -80,67 +62,69 @@
   <div id="tsparticles"></div>
 
   <!-- HERO SECTION -->
-  <section class="min-h-screen flex items-center justify-center px-6 text-center">
+  <section class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
     <div class="glass p-10 max-w-3xl w-full" data-aos="zoom-in">
-      <h1 class="text-5xl font-extrabold mb-4 animated-gradient">Prompt2PicBot</h1>
-      <p class="text-lg mb-6 opacity-90 typewriter-text" id="typewriter-text">Generate AI images instantly — just by describing it.</p>
-      <a href="#about" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full font-semibold transition-all">Learn More</a>
+      <img src="https://prompt2pic.netlify.app/bot_dp.jpg" alt="Bot DP" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"/>
+      <h1 class="text-5xl font-extrabold mb-4 animated-gradient">Prompt2Pic</h1>
+      <p class="text-lg mb-6 opacity-90">Create stunning AI art in seconds with your imagination ✨</p>
+      <a href="#gallery" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-full font-semibold transition-all">See the Magic</a>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="py-20 px-8" data-aos="fade-up">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6 animated-gradient">What is Prompt2PicBot?</h2>
-      <p class="text-lg mb-6">Prompt2PicBot is a Telegram bot that lets users generate images with text prompts using AI models like FLUX.1-dev on Hugging Face. Built with love, Tailwind, Cloudflare, Supabase, and a little bit of magic ✨</p>
-      <p class="text-md text-gray-300 italic">Due to free-tier limits on Hugging Face, the live image generation is currently paused. But the backend, code, and demo are fully ready for review.</p>
-      <div class="mt-10">
-        <a href="https://t.me/Prompt2picbot" class="bg-blue-500 hover:bg-blue-600 px-5 py-2 rounded-full">Try the Bot</a>
-        <a href="https://prompt2pic.netlify.app" class="ml-4 underline">Visit Website</a>
+  <!-- IMAGE GALLERY -->
+  <section id="gallery" class="py-16 px-6 bg-gradient-to-b from-transparent to-black">
+    <h2 class="text-4xl font-bold text-center mb-10 animated-gradient" data-aos="fade-up">AI Generated Art</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <img src="https://prompt2pic.netlify.app/art1.jpg" class="rounded-xl shadow-md" data-aos="flip-left"/>
+      <img src="https://prompt2pic.netlify.app/art2.jpg" class="rounded-xl shadow-md" data-aos="flip-right"/>
+      <img src="https://prompt2pic.netlify.app/art3.jpg" class="rounded-xl shadow-md" data-aos="flip-left"/>
+      <img src="https://prompt2pic.netlify.app/art4.jpg" class="rounded-xl shadow-md" data-aos="flip-right"/>
+      <img src="https://prompt2pic.netlify.app/art5.jpg" class="rounded-xl shadow-md" data-aos="flip-left"/>
+      <img src="https://prompt2pic.netlify.app/art6.jpg" class="rounded-xl shadow-md" data-aos="flip-right"/>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-16 px-6 bg-black text-white">
+    <h2 class="text-4xl font-bold text-center mb-10 animated-gradient" data-aos="fade-up">FAQ</h2>
+    <div class="max-w-3xl mx-auto space-y-6">
+      <div class="glass p-6" data-aos="fade-up">
+        <h3 class="text-xl font-semibold">Is Prompt2Pic free to use?</h3>
+        <p class="text-sm opacity-90 mt-2">Yes! You can generate a few AI images daily for free.</p>
+      </div>
+      <div class="glass p-6" data-aos="fade-up">
+        <h3 class="text-xl font-semibold">How do I use it?</h3>
+        <p class="text-sm opacity-90 mt-2">Just describe what you want to see, and our bot will create the image instantly.</p>
+      </div>
+      <div class="glass p-6" data-aos="fade-up">
+        <h3 class="text-xl font-semibold">Where can I access the bot?</h3>
+        <p class="text-sm opacity-90 mt-2">You can find it on Telegram: <a href="https://t.me/Prompt2picbot" class="text-purple-400 underline">@Prompt2picbot</a></p>
       </div>
     </div>
   </section>
 
-  <!-- IMAGES SECTION -->
-  <section class="py-20 px-8 bg-black/40" data-aos="fade-up">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6 animated-gradient">Gallery</h2>
-      <p class="mb-10 text-gray-300">Some AI images generated by Prompt2PicBot</p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <img src="your-image1.jpg" class="rounded-xl shadow-lg" alt="Sample 1"/>
-        <img src="your-image2.jpg" class="rounded-xl shadow-lg" alt="Sample 2"/>
-        <img src="your-image3.jpg" class="rounded-xl shadow-lg" alt="Sample 3"/>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER SECTION -->
-  <footer class="py-8 text-center text-gray-400">
-    <p>&copy; 2025 Prompt2PicBot | Built with ❤️ for the ALP Hackathon</p>
-  </footer>
+  <footer class="text-center text-sm opacity-70 py-6">Made with ❤️ for the Hackathon</footer>
 
   <script>
     AOS.init();
     tsParticles.load("tsparticles", {
       particles: {
-        number: { value: 50 },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
+        number: { value: 60 },
         size: { value: 3 },
-        move: { enable: true, speed: 1 }
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" }
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push: { quantity: 4 }
-        }
-      },
-      retina_detect: true
+        move: { enable: true, speed: 1 },
+        opacity: { value: 0.5 },
+        links: { enable: true, color: "#ffffff" }
+      }
+    });
+
+    const scrollBtn = document.createElement("button");
+    scrollBtn.textContent = "↑";
+    scrollBtn.className = "scroll-top-btn";
+    document.body.appendChild(scrollBtn);
+    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) scrollBtn.classList.add("show")
+      else scrollBtn.classList.remove("show")
     });
   </script>
 </body>
